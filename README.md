@@ -1,2 +1,2 @@
 # SOFTENG2-git
-DIY Travel Itinerary Sit
+DIY Travel Itinerary Site
