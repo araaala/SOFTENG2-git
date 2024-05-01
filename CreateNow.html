@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Now</title>
+    <link rel="stylesheet" href="css/CreateNow.css">
+</head>
+<body>
+    <img src="img/logo.png" alt="Logo" class="logo">
+    <div class="container">
+        <div class="content">
+            
+            <h1> <img src="img/location.png" alt="Location" class="location"> Travel made easy</h1>
+    </div> 
+    <form id="tripForm">
+        <label for="email" class="fontTitle">Enter your email address:</label>
+        <input type="email" id="email" name="email" required><br><br><br>
+
+        <label for="startDate" class="fontTitle">Start Date:</label><br>
+        <input type="date" id="startDate" name="startDate" required><br><br>
+
+        <label for="endDate" class="fontTitle">End Date:</label><br>
+        <input type="date" id="endDate" name="endDate" required><br><br><br>
+        
+        <label class="fontTitle">What are your preferred activities:</label><br><br>
+        <div id="activityButtons">
+            <input type="button" class="activity" value="DINING">
+            <input type="button" class="activity" value="ADVENTURE">
+            <input type="button" class="activity" value="CULTURAL">
+            <input type="button" class="activity" value="RELAXATION"><br>
+            <input type="button" class="activity" value="PHOTOGRAPHY">
+            <input type="button" class="activity" value="HISTORICAL">
+            <input type="button" class="activity" value="OUTDOOR">
+            <input type="button" class="activity" value="INDOOR">
+        </div><br><br>
+        
+        <label class="fontTitle">Select Cities in Laguna:</label><br><br>
+        <div id="cityButtons" class="btn">
+            <input type="button" class="city" value="SANTA ROSA">
+            <input type="button" class="city" value="SAN PABLO">
+            <input type="button" class="city" value="LILIW">
+            <input type="button" class="city" value="NAGCARLAN"><br>
+            <input type="button" class="city" value="CALAMBA">
+            <input type="button" class="city" value="QUEZON PROVINCE">
+            <input type="button" class="city" value="MAJAYJAY">
+            <input type="button" class="city" value="CALAUAN">
+        </div><br><br>
+        
+        <button onclick="window.location.href='Itinerary.html'" id="planTripBtn" type="submit">GET ITINERARY!</button>
+    </form>
+
+    <div id="result" style="display: none;">
+        <h2>Trip Details</h2>
+        <p id="tripDuration"></p>
+    </div>
+
+    </div>
+    
+    <script src="js/CreateNow.js"></script>
+
+</body>
+</html>

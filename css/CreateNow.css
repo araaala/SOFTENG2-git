@@ -1,0 +1,129 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #FFF5EE; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+}
+
+.logo {
+    position: absolute;
+    top: 20px; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    width: 80px;
+    height: 80px;
+}
+
+.content {
+    margin: 20px; 
+    text-align: center;
+}
+
+.location{
+    width: 40px;
+    height: 40px;
+}
+
+.fontTitle{
+    font-size: 20px;
+}
+
+#email {
+    width: 300px; 
+    padding: 10px; 
+    font-size: 16px; 
+    border: 2px solid #ccc; 
+    border-radius: 15px; 
+    background-color: #CC5500;
+    color: white;
+}
+
+input[type="date"] {
+    width: 200px; 
+    padding: 10px; 
+    font-size: 20px; 
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+    border: 2px solid #ccc; 
+    border-radius: 15px; 
+    background-color: #CC5500;
+    color: white;
+}
+
+.activity {
+    background-color: #CC5500;
+    color: white;
+    width: 200px;
+    height: 40px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    cursor: pointer;
+    border-radius: 15px;
+    font-size: 14px;
+    font-weight: 550;
+    letter-spacing: 0.8mm;
+}
+
+.activity:hover {
+    background-color: #e0e0e0;
+}
+
+.activity.selected {
+    background-color: lightgrey;
+    color: black;
+}
+
+.city {
+    background-color: #CC5500;
+    color: white;
+    width: 200px;
+    height: 40px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    cursor: pointer;
+    border-radius: 15px;
+    font-size: 14px;
+    font-weight: 550;
+    letter-spacing: 0.8mm;
+}
+
+.city:hover {
+    background-color: #e0e0e0;
+}
+
+.city.selected {
+    background-color: lightgrey;
+    color: black;
+}
+
+#planTripBtn {
+    background-color: #CC5500;
+    border: none;
+    color: white;
+    padding: 10px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    font-weight: 600;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 15px;
+    border: 3px solid black;
+    letter-spacing: 0.8mm;
+}
+
+#planTripBtn:hover {
+    background-color: #333;
+}
