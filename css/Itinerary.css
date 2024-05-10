@@ -1,5 +1,5 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     background-color: #FFF5EE; 
     text-align: center;
 }
@@ -12,5 +12,48 @@ h1 {
 .selectedDisplay{
     text-align: center;
     font-size: 18px;
-    color: #666;
+    color: #100f0f;
 }
+
+button{
+    display: inline-block;
+    padding: 10px 30px;
+    background-color: #CC5500; 
+    color: white;
+    text-decoration: none;
+    border-radius: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: .5mm;
+}
+
+button:hover {
+    background-color: #333;
+}
+
+.container {
+    display: flex; 
+    justify-content: space-between; 
+    max-width: 800px; 
+    margin: 0 auto; 
+}
+
+.column {
+    width: 48%;
+    font-size: 13px;
+}
+
+
+#itinerary{
+    text-align: justify;
+    display: inline-block;
+}
+
+#itineraryList{
+    font-size: 20px;
+}
+
+.center-container {
+    text-align: center;
+}
+

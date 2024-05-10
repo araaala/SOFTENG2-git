@@ -19,21 +19,27 @@
                 <h3>Selected Dates:</h3>
                 <p id="startDate">Start Date:<!-- Placeholder for start date --></p>
                 <p id="endDate">End Date: <!-- Placeholder for end date --></p>
-            </div>
-            
+            </div>         
         </section>
-        <section id="itinerary">
+        
+        <section id="itinerary" class="center-container">
             <h2>Generated Itinerary</h2>
-            <ul id="itineraryList">
+            <p id="itineraryList">
                 <!-- Itinerary items will be dynamically added here -->
                 <!-- Example: <li>Day 1: Morning - Breakfast at [Restaurant], Afternoon - Visit [Attraction]</li> -->
-            </ul>
-            <button id="editItineraryBtn">Edit Itinerary</button>
+            </p>
         </section>
+
+        <div class="container">
+            <div class="column">
+                <p>No changes to the itinerary? Just one more click away...<button id="generateItinerary">EMAIL IT TO ME!</button></p> 
+            </div>
+            <div class="column">
+                <p>I want to customize my itinerary <button id="editItineraryBtn">EDIT ITNERARY</button> </p>
+            </div>
+        </div>
+
     </main>
-    <footer>
-        <p>&copy; 2024 Travel Planner</p>
-    </footer>
     <script src="js/Itinerary.js"></script>
 </body>
 </html>

@@ -26,9 +26,9 @@ function initItineraryPage() {
 function populateItinerary() {
     // Dummy itinerary data (replace with actual data fetched from the database)
     const itineraryData = [
-        { day: 'Day 1', morning: 'Breakfast at Restaurant A', afternoon: 'Visit Attraction X' },
-        { day: 'Day 2', morning: 'Lunch at Restaurant B', afternoon: 'Explore Attraction Y' }
-        // Add more itinerary data as needed
+        { day: 'DAY ONE', morning: 'Check in at Hotel', afternoon: 'Explore the area', link: 'https://example.com'},
+        { day: 'DAY TWO', morning: 'Breakfast at Cafe Breton', afternoon: 'Have fun at Enchanted Kingdom', link: 'https://example.com' },
+        { day: 'DAY THREE', morning: 'Visit and discover the heritage of...', afternoon: 'Dinner at,,,', link: 'https://example.com'}
     ];
 
     // Select the itinerary list element
@@ -41,8 +41,18 @@ function populateItinerary() {
     itineraryData.forEach(item => {
         const listItem = document.createElement('li');
         // Construct the itinerary item string
-        const itineraryItem = `${item.day}: Morning - ${item.morning}, Afternoon - ${item.afternoon}`;
-        listItem.textContent = itineraryItem;
+        let itineraryItem = `${item.day}: ${item.morning},  ${item.afternoon}`;
+        // Check if there's a link associated with this item
+        if (item.link) {
+            // If there's a link, create an anchor element and append it to the item string
+            const linkElement = document.createElement('a');
+            linkElement.href = item.link;
+            linkElement.textContent = 'Click for details';
+            // Append the link to the itinerary item
+            itineraryItem += ` (${linkElement.outerHTML})`;
+        }
+        // Set the HTML content of the list item
+        listItem.innerHTML = itineraryItem;
         // Append the list item to the itinerary list
         itineraryList.appendChild(listItem);
     });
