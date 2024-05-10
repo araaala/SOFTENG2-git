@@ -27,7 +27,7 @@ function populateItinerary() {
     // Dummy itinerary data (replace with actual data fetched from the database)
     const itineraryData = [
         { day: 'DAY ONE', morning: 'Check in at Hotel', afternoon: 'Explore the area', link: 'https://example.com'},
-        { day: 'DAY TWO', morning: 'Breakfast at Cafe Breton', afternoon: 'Have fun at Enchanted Kingdom', link: 'https://example.com' },
+        { day: 'DAY TWO', morning: 'Breakfast at ...', afternoon: 'Have fun at...', link: 'https://example.com' },
         { day: 'DAY THREE', morning: 'Visit and discover the heritage of...', afternoon: 'Dinner at,,,', link: 'https://example.com'}
     ];
 
