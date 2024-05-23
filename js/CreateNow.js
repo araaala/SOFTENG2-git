@@ -19,13 +19,29 @@ document.getElementById('tripForm').addEventListener('submit', function(event) {
     const selectedActivities = Array.from(document.querySelectorAll('.activity.selected')).map(activity => activity.value);
     const selectedCities = Array.from(document.querySelectorAll('.city.selected')).map(city => city.value);
 
-    const queryParams = new URLSearchParams({
-        email: email,
-        startDate: startDate,
-        endDate: endDate,
-        activities: selectedActivities.join(','),
-        cities: selectedCities.join(',')
+    fetch('/send-itinerary', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            email: email,
+            startDate: startDate,
+            endDate: endDate,
+            activities: selectedActivities,
+            cities: selectedCities
+        }),
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert('Itinerary sent successfully!');
+        } else {
+            alert('Failed to send itinerary.');
+        }
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+        alert('An error occurred while sending the itinerary.');
     });
-
-    window.location.href = 'Itinerary.html?' + queryParams.toString();
 });

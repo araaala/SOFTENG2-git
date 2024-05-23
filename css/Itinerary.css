@@ -19,7 +19,7 @@ button{
     display: inline-block;
     padding: 10px 30px;
     background-color: #CC5500; 
-    color: white;
+    color: #100f0f;
     text-decoration: none;
     border-radius: 15px;
     font-size: 18px;
@@ -28,7 +28,22 @@ button{
 }
 
 button:hover {
-    background-color: #333;
+    background-color: transparent;
+    text-decoration: none;
+    color: #100f0f;
+}
+
+a{
+    text-decoration: none;
+}
+
+a:visited {
+    color: #100f0f;
+}
+
+
+button:active {
+    text-decoration: none;
 }
 
 .container {

@@ -6,7 +6,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: auto;
 }
 
 .container {
@@ -77,6 +77,7 @@ input[type="date"] {
 
 .activity:hover {
     background-color: #e0e0e0;
+    color: black;
 }
 
 .activity.selected {
@@ -100,6 +101,7 @@ input[type="date"] {
 
 .city:hover {
     background-color: #e0e0e0;
+    color: black;
 }
 
 .city.selected {
@@ -125,5 +127,34 @@ input[type="date"] {
 }
 
 #planTripBtn:hover {
-    background-color: #333;
+    background-color: transparent;
+    text-decoration: none;
 }
+
+a{
+    text-decoration: none;
+}
+
+a:visited {
+    color: black;
+}
+
+.completeITR{
+    background-color: #CC5500;
+    color: white;
+    width: 200px;
+    height: 40px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    cursor: pointer;
+    border-radius: 15px;
+    font-size: 14px;
+    font-weight: 550;
+    letter-spacing: 0.8mm;
+}
+
+.completeITR:hover {
+    background-color: transparent;
+    color: black;
+}
+

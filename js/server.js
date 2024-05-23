@@ -1,41 +1,69 @@
 const express = require('express');
-const mysql = require('mysql');
+const bodyParser = require('body-parser');
+const nodemailer = require('nodemailer');
+const PDFDocument = require('pdfkit');
+const fs = require('fs');
 
 const app = express();
+app.use(bodyParser.json());
+
+app.post('/send-itinerary', (req, res) => {
+    const { email, startDate, endDate, activities, cities } = req.body;
+
+    // Generate PDF
+    const doc = new PDFDocument();
+    const pdfPath = 'itinerary.pdf';
+    doc.pipe(fs.createWriteStream(pdfPath));
+    doc.fontSize(25).text('Your Itinerary Details', { align: 'center' });
+    doc.moveDown();
+    doc.fontSize(18).text(`Start Date: ${startDate}`);
+    doc.text(`End Date: ${endDate}`);
+    doc.moveDown();
+    doc.fontSize(20).text('Activities:', { underline: true });
+    activities.forEach(activity => {
+        doc.fontSize(16).text(activity);
+    });
+    doc.moveDown();
+    doc.fontSize(20).text('Cities:', { underline: true });
+    cities.forEach(city => {
+        doc.fontSize(16).text(city);
+    });
+    doc.end();
+
+    doc.on('finish', () => {
+        // Send Email
+        const transporter = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+                user: 'your-email@gmail.com',
+                pass: 'your-email-password',
+            },
+        });
+
+        const mailOptions = {
+            from: 'your-email@gmail.com',
+            to: email,
+            subject: 'Your Itinerary',
+            text: 'Please find attached your itinerary.',
+            attachments: [
+                {
+                    filename: 'itinerary.pdf',
+                    path: pdfPath,
+                },
+            ],
+        };
+
+        transporter.sendMail(mailOptions, (error, info) => {
+            if (error) {
+                return res.status(500).json({ success: false, error: error.toString() });
+            }
+            fs.unlinkSync(pdfPath); // Remove the file after sending
+            res.json({ success: true });
+        });
+    });
+});
+
 const PORT = process.env.PORT || 3000;
-
-// MySQL database connection
-const connection = mysql.createConnection({
-    host: '127.0.0.1',
-    user: 'root',
-    password: '0415',
-    database: 'testing1'
-});
-
-connection.connect((err) => {
-  if (err) {
-    console.error('Error connecting to MySQL:', err);
-    return;
-  }
-  console.log('Connected to MySQL');
-});
-
-// Define an API endpoint to fetch itinerary data
-app.get('/api/itinerary', (req, res) => {
-  // Query to fetch itinerary data from the database
-  const sql = 'SELECT * FROM itinerary';
-
-  connection.query(sql, (err, results) => {
-    if (err) {
-      console.error('Error fetching itinerary data:', err);
-      res.status(500).json({ error: 'Error fetching itinerary data' });
-      return;
-    }
-    res.json(results);
-  });
-});
-
-// Start the server
 app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
+    console.log(`Server is running on port ${PORT}`);
 });

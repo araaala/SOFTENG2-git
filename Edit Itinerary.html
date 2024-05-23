@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Itinerary</title>
+</head>
+<body>
+    <h1>Edit Your Itinerary</h1>
+    <p id="startDate"></p>
+    <p id="endDate"></p>
+    <p id="selectedActivities"></p>
+    <p id="selectedCities"></p>
+
+    <ul id="itineraryList"></ul>
+
+    <button id="editItineraryButton">Edit Itinerary</button>
+
+    <div id="editSection" style="display:none;">
+        <h2>Edit Activities</h2>
+        <label for="daySelect">Select Day:</label>
+        <select id="daySelect">
+            <!-- Options will be populated dynamically -->
+        </select>
+
+        <label for="timeOfDay">Time of Day:</label>
+        <select id="timeOfDay">
+            <option value="morning">Morning</option>
+            <option value="afternoon">Afternoon</option>
+        </select>
+
+        <label for="newActivity">New Activity:</label>
+        <input type="text" id="newActivity" placeholder="Enter new activity">
+
+        <button id="addActivityButton">Add Activity</button>
+        <button id="removeActivityButton">Remove Activity</button>
+    </div>
+
+    <script src="js/Edit Itinerary.js"></script>
+</body>
+</html>
