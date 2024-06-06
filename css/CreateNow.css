@@ -39,20 +39,10 @@ body {
     font-size: 20px;
 }
 
-#email {
-    width: 300px; 
-    padding: 10px; 
-    font-size: 16px; 
-    border: 2px solid #ccc; 
-    border-radius: 15px; 
-    background-color: #CC5500;
-    color: white;
-}
-
 input[type="date"] {
     width: 200px; 
     padding: 10px; 
-    font-size: 20px; 
+    font-size: 15px; 
     border: 1px solid #ccc; 
     border-radius: 4px; 
     border: 2px solid #ccc; 
@@ -142,14 +132,14 @@ a:visited {
 .completeITR{
     background-color: #CC5500;
     color: white;
-    width: 200px;
+    width: auto;
     height: 40px;
     margin-right: 5px;
     margin-bottom: 5px;
     cursor: pointer;
     border-radius: 15px;
     font-size: 14px;
-    font-weight: 550;
+    font-weight: 600px;
     letter-spacing: 0.8mm;
 }
 

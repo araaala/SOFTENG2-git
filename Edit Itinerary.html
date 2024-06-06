@@ -4,38 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Itinerary</title>
+    <link rel="stylesheet" href="css/EditItinerary.css">
 </head>
 <body>
-    <h1>Edit Your Itinerary</h1>
-    <p id="startDate"></p>
-    <p id="endDate"></p>
-    <p id="selectedActivities"></p>
-    <p id="selectedCities"></p>
-
-    <ul id="itineraryList"></ul>
-
-    <button id="editItineraryButton">Edit Itinerary</button>
-
-    <div id="editSection" style="display:none;">
-        <h2>Edit Activities</h2>
-        <label for="daySelect">Select Day:</label>
-        <select id="daySelect">
-            <!-- Options will be populated dynamically -->
-        </select>
-
-        <label for="timeOfDay">Time of Day:</label>
-        <select id="timeOfDay">
-            <option value="morning">Morning</option>
-            <option value="afternoon">Afternoon</option>
-        </select>
-
-        <label for="newActivity">New Activity:</label>
-        <input type="text" id="newActivity" placeholder="Enter new activity">
-
-        <button id="addActivityButton">Add Activity</button>
-        <button id="removeActivityButton">Remove Activity</button>
-    </div>
-
-    <script src="js/Edit Itinerary.js"></script>
+    <header>
+        <h3>Edit Your Itinerary</h3>
+    </header>
+    <main>
+        <section id="itineraryEditor" class="center-container">
+            <h3>Customize Itinerary</h3>
+            <form id="editForm">
+                <!-- Day 1 -->
+                <label for="day1">Day 1:</label>
+                <input type="text" id="day1" name="day1" placeholder="Enter activity for Day 1"><br>
+                
+                <!-- Day 2 -->
+                <label for="day2">Day 2:</label>
+                <input type="text" id="day2" name="day2" placeholder="Enter activity for Day 2"><br>
+                
+                <!-- Day 3 -->
+                <label for="day3">Day 3:</label>
+                <input type="text" id="day3" name="day3" placeholder="Enter activity for Day 3"><br>
+                
+                <!-- Submit Button -->
+                <button type="submit">Save Changes</button>
+            </form>
+        </section>
+    </main>
+    <script src="js/EditItinerary.js"></script>
 </body>
 </html>

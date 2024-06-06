@@ -1,90 +1,27 @@
-function displayTravelDetails() {
+document.addEventListener('DOMContentLoaded', function() {
+    // Retrieve existing itinerary data from URL parameters and populate form
     const params = new URLSearchParams(window.location.search);
-    const startDate = params.get('startDate');
-    const endDate = params.get('endDate');
-    let selectedActivities = params.getAll('activities').map(activity => activity.toLowerCase());
-    let selectedCities = params.getAll('cities');
+    const itineraryData = JSON.parse(params.get('itinerary'));
 
-    document.getElementById('startDate').textContent = 'Start Date: ' + startDate;
-    document.getElementById('endDate').textContent = 'End Date: ' + endDate;
+    document.getElementById('day1').value = itineraryData[0].details;
+    document.getElementById('day2').value = itineraryData[1].details;
+    document.getElementById('day3').value = itineraryData[2].details;
 
-    if (selectedActivities.length > 0) {
-        document.getElementById('selectedActivities').textContent = 'Your Preferences: ' + selectedActivities.join(',  ') + '.';
-    }
+    // Handle form submission
+    document.getElementById('editForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent default form submission
 
-    if (selectedCities.length > 0) {
-        document.getElementById('selectedCities').textContent = 'Selected Cities: ' + selectedCities.join(', ') + '.';
-    }
-}
+        // Retrieve edited itinerary details
+        const editedItinerary = [
+            { day: 'Day 1', details: document.getElementById('day1').value },
+            { day: 'Day 2', details: document.getElementById('day2').value },
+            { day: 'Day 3', details: document.getElementById('day3').value }
+        ];
 
-let itineraryData = [
-    { day: 'DAY ONE', morning: 'Check in at Hotel', afternoon: 'Explore the area', link: 'https://example.com'},
-    { day: 'DAY TWO', morning: 'Breakfast at ...', afternoon: 'Have fun at...', link: 'https://example.com' },
-    { day: 'DAY THREE', morning: 'Visit and discover the heritage of...', afternoon: 'Dinner at,,,', link: 'https://example.com'}
-];
-
-function populateItinerary() {
-    const itineraryList = document.getElementById('itineraryList');
-    itineraryList.innerHTML = '';
-
-    itineraryData.forEach((item, index) => {
-        const listItem = document.createElement('li');
-        let itineraryItem = `${item.day}: ${item.morning},  ${item.afternoon}`;
-        if (item.link) {
-            const linkElement = document.createElement('a');
-            linkElement.href = item.link;
-            linkElement.textContent = 'Click for details';
-            itineraryItem += ` (${linkElement.outerHTML})`;
-        }
-        listItem.innerHTML = itineraryItem;
-        itineraryList.appendChild(listItem);
+        // Serialize edited itinerary data and redirect back to itinerary page with updated data
+        const editedParams = new URLSearchParams();
+        editedParams.append('itinerary', JSON.stringify(editedItinerary));
+        const editedUrl = 'Itinerary.html?' + editedParams.toString();
+        window.location.href = editedUrl;
     });
-}
-
-function initItineraryPage() {
-    displayTravelDetails();
-    populateItinerary();
-    setupEditItinerary();
-}
-
-function setupEditItinerary() {
-    populateDaySelect();
-
-    document.getElementById('addActivityButton').addEventListener('click', () => {
-        const day = document.getElementById('daySelect').value;
-        const timeOfDay = document.getElementById('timeOfDay').value;
-        const newActivity = document.getElementById('newActivity').value;
-
-        if (newActivity) {
-            const dayIndex = itineraryData.findIndex(item => item.day === day);
-            if (dayIndex !== -1) {
-                itineraryData[dayIndex][timeOfDay] = newActivity;
-                populateItinerary();
-            }
-        }
-    });
-
-    document.getElementById('removeActivityButton').addEventListener('click', () => {
-        const day = document.getElementById('daySelect').value;
-        const timeOfDay = document.getElementById('timeOfDay').value;
-
-        const dayIndex = itineraryData.findIndex(item => item.day === day);
-        if (dayIndex !== -1) {
-            itineraryData[dayIndex][timeOfDay] = '';
-            populateItinerary();
-        }
-    });
-}
-
-function populateDaySelect() {
-    const daySelect = document.getElementById('daySelect');
-    daySelect.innerHTML = '';
-    itineraryData.forEach(item => {
-        const option = document.createElement('option');
-        option.value = item.day;
-        option.textContent = item.day;
-        daySelect.appendChild(option);
-    });
-}
-
-document.addEventListener('DOMContentLoaded', initItineraryPage);
+});

@@ -8,37 +8,35 @@
 </head>
 <body>
     <header>
-        <h1>We'll handle your trip for you...</h1>
+        <h3>We'll handle your trip for you...</h3>
     </header>
     <main>
         <section id="travelDetails">
-            <div id="selectedActivities" class="selectedDisplay"></div>
-            <div id="selectedCities" class="selectedDisplay"></div>
+            <div id="selectedActivities" class="selectedDisplay" style="font-size: 13px;"></div>
+            <div id="selectedCities" class="selectedDisplay" style="font-size: 13px;"></div>
 
             <div id="selectedDates">
-                <h3>Selected Dates:</h3>
-                <p id="startDate">Start Date:<!-- Placeholder for start date --></p>
-                <p id="endDate">End Date: <!-- Placeholder for end date --></p>
-            </div>         
+                <h4>Selected Dates:</h4>
+                <p id="startDate">Start Date: <!-- Placeholder for start date --></p>
+                <p id="endDate">End Date: <!-- Placeholder for start date --></p>
+            </div>
         </section>
         
         <section id="itinerary" class="center-container">
-            <h2>Generated Itinerary</h2>
+            <h3>Generated Itinerary</h3>
             <ul id="itineraryList">
                 <!-- Itinerary items will be dynamically added here -->
-                <!-- Example: <li>Day 1: Morning - Breakfast at [Restaurant], Afternoon - Visit [Attraction]</li> -->
             </ul>
         </section>
 
         <div class="container">
             <div class="column">
-                <p>No changes to the itinerary? Just one more click away...<button id="generateItinerary">EMAIL IT TO ME!</button></p> 
+                <p>No changes to the itinerary? Just one more click away... <br><br> <button id="generateItinerary">DOWNLOAD PDF</button></p>
             </div>
             <div class="column">
-                <p>I want to customize my itinerary <button  id="editItineraryBtn"><a href="Edit Itinerary.html">EDIT ITINERARY</a></button></p>
+                <p>I want to customize my itinerary <br><br> <button id="editItineraryBtn"><a href="Edit Itinerary.html">EDIT ITINERARY</a></button></p>
             </div>
         </div>
-
     </main>
     <script src="js/Itinerary.js"></script>
 </body>
