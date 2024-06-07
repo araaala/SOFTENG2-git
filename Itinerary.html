@@ -5,33 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Itinerary</title>
     <link rel="stylesheet" href="css/Itinerary.css">
+    <!-- Include html2pdf.js library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCeGU5OcqI9Gr9fm5zQjNW7CGAn7GTcSjE&callback=initMap"></script>
 </head>
 <body>
     <header>
         <h3>We'll handle your trip for you...</h3>
     </header>
     <main>
-        <section id="travelDetails">
-            <div id="selectedActivities" class="selectedDisplay" style="font-size: 13px;"></div>
-            <div id="selectedCities" class="selectedDisplay" style="font-size: 13px;"></div>
+        <!-- Div to be included in the PDF -->
+        <div id="pdf-content">
+            <section id="travelDetails">
+                <div id="selectedActivities" class="selectedDisplay" style="font-size: 13px;"></div>
+                <div id="selectedCities" class="selectedDisplay" style="font-size: 13px;"></div>
 
-            <div id="selectedDates">
-                <h4>Selected Dates:</h4>
-                <p id="startDate">Start Date: <!-- Placeholder for start date --></p>
-                <p id="endDate">End Date: <!-- Placeholder for start date --></p>
-            </div>
-        </section>
-        
-        <section id="itinerary" class="center-container">
-            <h3>Generated Itinerary</h3>
-            <ul id="itineraryList">
-                <!-- Itinerary items will be dynamically added here -->
-            </ul>
-        </section>
+                <div id="selectedDates">
+                    <h4>Selected Dates:</h4>
+                    <p id="startDate">Start Date: <!-- Placeholder for start date --></p>
+                    <p id="endDate">End Date: <!-- Placeholder for start date --></p>
+                </div>
+            </section>
+            
+            <section id="itinerary" class="center-container">
+                <h3>Generated Itinerary</h3>
+                <ul id="itineraryList">
+                    <!-- Itinerary items will be dynamically added here -->
+                </ul>
+            </section>
+        </div>
+
+        <div id="map" style="height: 500px; width: 100%;"></div>
 
         <div class="container">
             <div class="column">
-                <p>No changes to the itinerary? Just one more click away... <br><br> <button id="generateItinerary">DOWNLOAD PDF</button></p>
+                <p>No changes to the itinerary? Just one more click away... <br><br> <button id="generateItinerary" onclick="downloadPDF()">DOWNLOAD PDF</button></p>
             </div>
             <div class="column">
                 <p>I want to customize my itinerary <br><br> <button id="editItineraryBtn"><a href="Edit Itinerary.html">EDIT ITINERARY</a></button></p>

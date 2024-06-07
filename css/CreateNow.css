@@ -119,6 +119,7 @@ input[type="date"] {
 #planTripBtn:hover {
     background-color: transparent;
     text-decoration: none;
+    color: black;
 }
 
 a{

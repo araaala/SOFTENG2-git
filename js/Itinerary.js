@@ -31,7 +31,7 @@ function populateItinerary() {
     const itineraryData = [
         { day: 'Day 1', details: `Check in at a hotel in ${selectedCities[0]} and enjoy ${selectedActivities[0]}.` },
         { day: 'Day 2', details: `Experience ${selectedCities[1]} with ${selectedActivities[1]}.` },
-        { day: 'Day 3', details: `Explore ${selectedCities[2]} by  ${selectedActivities[3]} ` }
+        { day: 'Day 3', details: `Explore ${selectedCities[2]} by  ${selectedActivities[2]}.` }
     ];
 
     const itineraryList = document.getElementById('itineraryList');
@@ -47,6 +47,24 @@ function populateItinerary() {
 function initItineraryPage() {
     displayTravelDetails();
     populateItinerary();
+}
+
+function initMap() {
+    var map = new google.maps.Map(document.getElementById('map'), {
+        center: {lat: -34.397, lng: 150.644},
+        zoom: 8
+    });
+}
+
+function downloadPDF() {
+    const element = document.getElementById('pdf-content');
+    html2pdf(element, {
+        margin:       0.5,
+        filename:     'Itinerary.pdf',
+        image:        { type: 'jpeg', quality: 0.98 },
+        html2canvas:  { scale: 2 },
+        jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+    });
 }
 
 document.addEventListener('DOMContentLoaded', initItineraryPage);
